@@ -1,0 +1,24 @@
+formulas(assumptions).
+1 * x = x.
+x * 1 = x.
+x \ (x * y) = y.
+x * (x \ y) = y.
+(x * y) / y = x.
+(x / y) * y = x.
+a(x,y,z) = (x * (y * z)) \ ((x * y) * z).
+K(x,y) = (y * x) \ (x * y).
+L(x,y,z) = (z * y) \ (z * (y * x)).
+R(x,y,z) = ((x * y) * z) / (y * z).
+T(x,y) = y \ (x * y).
+T(T(x,y),z) = T(T(x,z),y).
+L(T(x,y),z,u) = T(L(x,z,u),y).
+R(T(x,y),z,u) = T(R(x,z,u),y).
+R(L(x,y,z),u,w) = L(R(x,u,w),y,z).
+L(L(x,y,z),u,w) = L(L(x,u,w),y,z).
+R(R(x,y,z),u,w) = R(R(x,u,w),y,z).
+a(x,y,a(z,u,K(w,v5))) = 1.
+a(x,y,a(z,u,a(w,v5,v6))) = 1.
+end_of_list.
+formulas(goals).
+K(x \ 1,x) * (1 / x) = x \ 1. % goal_362  line_1849
+end_of_list.
